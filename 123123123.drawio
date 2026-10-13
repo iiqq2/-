@@ -1,0 +1,228 @@
+<mxfile host="app.diagrams.net" agent="ChatGPT">
+  <diagram id="music-streaming-domain" name="Лабораторная 1 — МПО">
+    <mxGraphModel dx="2041" dy="1190" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2150" pageHeight="1280" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=27;fontFamily=Arial;fontStyle=1;" value="Модель предметной области — Музыкальный стриминговый сервис" vertex="1">
+          <mxGeometry height="50" width="1840" x="70" y="22" as="geometry" />
+        </mxCell>
+        <mxCell id="user" parent="1" style="swimlane;html=1;horizontal=1;startSize=40;container=1;collapsible=0;rounded=0;arcSize=0;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;strokeColor=#202020;strokeWidth=1.8;align=center;verticalAlign=middle;fontSize=21;fontStyle=1;fontColor=#191919;fontFamily=Arial;shadow=0;" value="Пользователь" vertex="1">
+          <mxGeometry height="182" width="285" x="70" y="525" as="geometry" />
+        </mxCell>
+        <mxCell id="user_attrs" parent="user" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=8;spacingTop=11;fontColor=#222222;fontSize=18;fontFamily=Arial;strokeColor=none;fillColor=none;" value="+ логин: String&lt;br&gt;- email: String&lt;br&gt;+ датаРегистрации: DateTime" vertex="1">
+          <mxGeometry height="137" width="277" x="4" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="playlist" parent="1" style="swimlane;html=1;horizontal=1;startSize=40;container=1;collapsible=0;rounded=0;arcSize=0;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;strokeColor=#202020;strokeWidth=1.8;align=center;verticalAlign=middle;fontSize=21;fontStyle=1;fontColor=#191919;fontFamily=Arial;shadow=0;" value="Плейлист" vertex="1">
+          <mxGeometry height="155" width="300" x="600" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="playlist_attrs" parent="playlist" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=8;spacingTop=11;fontColor=#222222;fontSize=18;fontFamily=Arial;strokeColor=none;fillColor=none;" value="+ название: String&lt;br&gt;+ датаСоздания: DateTime&lt;br&gt;+ публичный: Boolean" vertex="1">
+          <mxGeometry height="110" width="292" x="4" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="subscription" parent="1" style="swimlane;html=1;horizontal=1;startSize=40;container=1;collapsible=0;rounded=0;arcSize=0;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;strokeColor=#202020;strokeWidth=1.8;align=center;verticalAlign=middle;fontSize=21;fontStyle=1;fontColor=#191919;fontFamily=Arial;shadow=0;" value="Подписка" vertex="1">
+          <mxGeometry height="155" width="295" x="600" y="365" as="geometry" />
+        </mxCell>
+        <mxCell id="subscription_attrs" parent="subscription" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=8;spacingTop=11;fontColor=#222222;fontSize=18;fontFamily=Arial;strokeColor=none;fillColor=none;" value="+ датаНачала: DateTime&lt;br&gt;+ датаОкончания: DateTime&lt;br&gt;+ статус: String" vertex="1">
+          <mxGeometry height="110" width="287" x="4" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tariff" parent="1" style="swimlane;html=1;horizontal=1;startSize=40;container=1;collapsible=0;rounded=0;arcSize=0;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;strokeColor=#202020;strokeWidth=1.8;align=center;verticalAlign=middle;fontSize=21;fontStyle=1;fontColor=#191919;fontFamily=Arial;shadow=0;" value="Тариф" vertex="1">
+          <mxGeometry height="155" width="288" x="1065" y="365" as="geometry" />
+        </mxCell>
+        <mxCell id="tariff_attrs" parent="tariff" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=8;spacingTop=11;fontColor=#222222;fontSize=18;fontFamily=Arial;strokeColor=none;fillColor=none;" value="+ название: String&lt;br&gt;+ ценаВМесяц: Real&lt;br&gt;+ качествоЗвука: String" vertex="1">
+          <mxGeometry height="110" width="280" x="4" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="listening" parent="1" style="swimlane;html=1;horizontal=1;startSize=40;container=1;collapsible=0;rounded=0;arcSize=0;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;strokeColor=#202020;strokeWidth=1.8;align=center;verticalAlign=middle;fontSize=21;fontStyle=1;fontColor=#191919;fontFamily=Arial;shadow=0;" value="Прослушивание" vertex="1">
+          <mxGeometry height="155" width="295" x="600" y="705" as="geometry" />
+        </mxCell>
+        <mxCell id="listening_attrs" parent="listening" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=8;spacingTop=11;fontColor=#222222;fontSize=18;fontFamily=Arial;strokeColor=none;fillColor=none;" value="+ датаВремя: DateTime&lt;br&gt;+ длительность: Integer&lt;br&gt;+ источник: String" vertex="1">
+          <mxGeometry height="110" width="287" x="4" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="recommendation" parent="1" style="swimlane;html=1;horizontal=1;startSize=40;container=1;collapsible=0;rounded=0;arcSize=0;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;strokeColor=#202020;strokeWidth=1.8;align=center;verticalAlign=middle;fontSize=21;fontStyle=1;fontColor=#191919;fontFamily=Arial;shadow=0;" value="Рекомендательная подборка" vertex="1">
+          <mxGeometry height="140" width="370" x="565" y="1035" as="geometry" />
+        </mxCell>
+        <mxCell id="recommendation_attrs" parent="recommendation" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=8;spacingTop=11;fontColor=#222222;fontSize=18;fontFamily=Arial;strokeColor=none;fillColor=none;" value="+ название: String&lt;br&gt;+ датаФормирования: DateTime" vertex="1">
+          <mxGeometry height="95" width="362" x="4" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="track" parent="1" style="swimlane;html=1;horizontal=1;startSize=40;container=1;collapsible=0;rounded=0;arcSize=0;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;strokeColor=#202020;strokeWidth=1.8;align=center;verticalAlign=middle;fontSize=21;fontStyle=1;fontColor=#191919;fontFamily=Arial;shadow=0;" value="Трек" vertex="1">
+          <mxGeometry height="190" width="315" x="1090" y="695" as="geometry" />
+        </mxCell>
+        <mxCell id="track_attrs" parent="track" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=8;spacingTop=11;fontColor=#222222;fontSize=18;fontFamily=Arial;strokeColor=none;fillColor=none;" value="+ название: String&lt;br&gt;+ длительность: Integer&lt;br&gt;+ датаРелиза: Date&lt;br&gt;+ возрастноеОграничение: Integer" vertex="1">
+          <mxGeometry height="145" width="307" x="4" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="album" parent="1" style="swimlane;html=1;horizontal=1;startSize=40;container=1;collapsible=0;rounded=0;arcSize=0;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;strokeColor=#202020;strokeWidth=1.8;align=center;verticalAlign=middle;fontSize=21;fontStyle=1;fontColor=#191919;fontFamily=Arial;shadow=0;" value="Альбом" vertex="1">
+          <mxGeometry height="140" width="280" x="1680" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="album_attrs" parent="album" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=8;spacingTop=11;fontColor=#222222;fontSize=18;fontFamily=Arial;strokeColor=none;fillColor=none;" value="+ название: String&lt;br&gt;+ датаРелиза: Date" vertex="1">
+          <mxGeometry height="95" width="272" x="4" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="artist" parent="1" style="swimlane;html=1;horizontal=1;startSize=40;container=1;collapsible=0;rounded=0;arcSize=0;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;strokeColor=#202020;strokeWidth=1.8;align=center;verticalAlign=middle;fontSize=21;fontStyle=1;fontColor=#191919;fontFamily=Arial;shadow=0;" value="Исполнитель" vertex="1">
+          <mxGeometry height="140" width="280" x="1680" y="665" as="geometry" />
+        </mxCell>
+        <mxCell id="artist_attrs" parent="artist" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=8;spacingTop=11;fontColor=#222222;fontSize=18;fontFamily=Arial;strokeColor=none;fillColor=none;" value="+ имя: String&lt;br&gt;+ страна: String" vertex="1">
+          <mxGeometry height="95" width="272" x="4" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="genre" parent="1" style="swimlane;html=1;horizontal=1;startSize=40;container=1;collapsible=0;rounded=0;arcSize=0;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;strokeColor=#202020;strokeWidth=1.8;align=center;verticalAlign=middle;fontSize=21;fontStyle=1;fontColor=#191919;fontFamily=Arial;shadow=0;" value="Жанр" vertex="1">
+          <mxGeometry height="99" width="280" x="1680" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="genre_attrs" parent="genre" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=8;spacingTop=11;fontColor=#222222;fontSize=18;fontFamily=Arial;strokeColor=none;fillColor=none;" value="+ название: String" vertex="1">
+          <mxGeometry height="54" width="272" x="4" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="user_playlist" edge="1" parent="1" source="user" style="edgeStyle=segmentEdgeStyle;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#202020;strokeWidth=1.7;endArrow=none;startArrow=diamond;startFill=1;startSize=18;exitX=0.42105;exitY=0.00000;exitDx=0;exitDy=0;entryX=0.00000;entryY=0.50968;entryDx=0;entryDy=0;" target="playlist" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="278" />
+              <mxPoint x="538" y="278" />
+              <mxPoint x="538" y="174" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="user_playlist_label0" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="1" vertex="1">
+          <mxGeometry height="25" width="24" x="170" y="502" as="geometry" />
+        </mxCell>
+        <mxCell id="user_playlist_label1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="0..*" vertex="1">
+          <mxGeometry height="25" width="58" x="554" y="151" as="geometry" />
+        </mxCell>
+        <mxCell id="user_subscription" edge="1" parent="1" source="user" style="edgeStyle=segmentEdgeStyle;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#202020;strokeWidth=1.7;endArrow=none;startArrow=diamond;startFill=1;startSize=18;exitX=1.00000;exitY=0.23626;exitDx=0;exitDy=0;entryX=0.00000;entryY=0.43226;entryDx=0;entryDy=0;" target="subscription" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="473" y="568" />
+              <mxPoint x="473" y="432" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="user_subscription_label0" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="1" vertex="1">
+          <mxGeometry height="25" width="24" x="375" y="551" as="geometry" />
+        </mxCell>
+        <mxCell id="user_subscription_label1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="0..*" vertex="1">
+          <mxGeometry height="25" width="58" x="550" y="411" as="geometry" />
+        </mxCell>
+        <mxCell id="user_listening" edge="1" parent="1" source="user" style="edgeStyle=segmentEdgeStyle;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#202020;strokeWidth=1.7;endArrow=none;startArrow=diamond;startFill=1;startSize=18;exitX=1.00000;exitY=0.73077;exitDx=0;exitDy=0;entryX=0.00000;entryY=0.49677;entryDx=0;entryDy=0;" target="listening" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="518" y="658" />
+              <mxPoint x="518" y="782" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="user_listening_label0" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="1" vertex="1">
+          <mxGeometry height="25" width="24" x="379" y="638" as="geometry" />
+        </mxCell>
+        <mxCell id="user_listening_label1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="0..*" vertex="1">
+          <mxGeometry height="25" width="58" x="552" y="761" as="geometry" />
+        </mxCell>
+        <mxCell id="user_recommendation" edge="1" parent="1" source="user" style="edgeStyle=segmentEdgeStyle;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#202020;strokeWidth=1.7;endArrow=none;startArrow=diamond;startFill=1;startSize=18;exitX=0.60702;exitY=1.00000;exitDx=0;exitDy=0;entryX=0.00000;entryY=0.46429;entryDx=0;entryDy=0;" target="recommendation" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="243" y="1100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="user_recommendation_label0" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="1" vertex="1">
+          <mxGeometry height="25" width="24" x="221" y="731" as="geometry" />
+        </mxCell>
+        <mxCell id="user_recommendation_label1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="0..*" vertex="1">
+          <mxGeometry height="25" width="58" x="521" y="1077" as="geometry" />
+        </mxCell>
+        <mxCell id="playlist_track" edge="1" parent="1" source="playlist" style="edgeStyle=segmentEdgeStyle;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#202020;strokeWidth=1.7;endArrow=none;startArrow=diamond;startFill=0;startSize=18;exitX=1.00000;exitY=0.50323;exitDx=0;exitDy=0;entryX=0.50794;entryY=0.00000;entryDx=0;entryDy=0;" target="track" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1480" y="173" />
+              <mxPoint x="1480" y="613" />
+              <mxPoint x="1250" y="613" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="playlist_track_label0" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="0..*" vertex="1">
+          <mxGeometry height="25" width="58" x="936" y="151" as="geometry" />
+        </mxCell>
+        <mxCell id="playlist_track_label1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="0..*" vertex="1">
+          <mxGeometry height="25" width="58" x="1259" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="subscription_tariff" edge="1" parent="1" source="subscription" style="edgeStyle=segmentEdgeStyle;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#202020;strokeWidth=1.7;endArrow=none;startArrow=none;startFill=0;exitX=1.00000;exitY=0.47097;exitDx=0;exitDy=0;entryX=0.00000;entryY=0.47097;entryDx=0;entryDy=0;" target="tariff" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="subscription_tariff_label0" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="0..*" vertex="1">
+          <mxGeometry height="25" width="58" x="936" y="415" as="geometry" />
+        </mxCell>
+        <mxCell id="subscription_tariff_label1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="1" vertex="1">
+          <mxGeometry height="25" width="24" x="1034" y="415" as="geometry" />
+        </mxCell>
+        <mxCell id="listening_track" edge="1" parent="1" source="listening" style="edgeStyle=segmentEdgeStyle;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#202020;strokeWidth=1.7;endArrow=none;startArrow=none;startFill=0;exitX=1.00000;exitY=0.49677;exitDx=0;exitDy=0;entryX=0.00000;entryY=0.45789;entryDx=0;entryDy=0;" target="track" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="listening_track_label0" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="0..*" vertex="1">
+          <mxGeometry height="25" width="58" x="935" y="758" as="geometry" />
+        </mxCell>
+        <mxCell id="listening_track_label1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="1" vertex="1">
+          <mxGeometry height="25" width="24" x="1061" y="758" as="geometry" />
+        </mxCell>
+        <mxCell id="recommendation_track" edge="1" parent="1" source="recommendation" style="edgeStyle=segmentEdgeStyle;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#202020;strokeWidth=1.7;endArrow=none;startArrow=diamond;startFill=0;startSize=18;exitX=1.00000;exitY=0.46429;exitDx=0;exitDy=0;entryX=0.49206;entryY=1.00000;entryDx=0;entryDy=0;" target="track" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1040" y="1100" />
+              <mxPoint x="1040" y="955" />
+              <mxPoint x="1245" y="955" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="recommendation_track_label0" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="0..*" vertex="1">
+          <mxGeometry height="25" width="58" x="972" y="1080" as="geometry" />
+        </mxCell>
+        <mxCell id="recommendation_track_label1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="0..*" vertex="1">
+          <mxGeometry height="25" width="58" x="1255" y="919" as="geometry" />
+        </mxCell>
+        <mxCell id="album_track" edge="1" parent="1" source="album" style="edgeStyle=segmentEdgeStyle;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#202020;strokeWidth=1.7;endArrow=none;startArrow=diamond;startFill=0;startSize=18;exitX=0.00000;exitY=0.50000;exitDx=0;exitDy=0;entryX=1.00000;entryY=0.18421;entryDx=0;entryDy=0;" target="track" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1548" y="290" />
+              <mxPoint x="1548" y="730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="album_track_label0" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="0..*" vertex="1">
+          <mxGeometry height="25" width="58" x="1626" y="267" as="geometry" />
+        </mxCell>
+        <mxCell id="album_track_label1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="1..*" vertex="1">
+          <mxGeometry height="25" width="58" x="1429" y="709" as="geometry" />
+        </mxCell>
+        <mxCell id="artist_track" edge="1" parent="1" source="artist" style="edgeStyle=segmentEdgeStyle;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#202020;strokeWidth=1.7;endArrow=none;startArrow=none;startFill=0;exitX=0.00000;exitY=0.50000;exitDx=0;exitDy=0;entryX=1.00000;entryY=0.60526;entryDx=0;entryDy=0;" target="track" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1615" y="735" />
+              <mxPoint x="1615" y="810" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="artist_track_label0" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="1..*" vertex="1">
+          <mxGeometry height="25" width="58" x="1642" y="716" as="geometry" />
+        </mxCell>
+        <mxCell id="artist_track_label1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="0..*" vertex="1">
+          <mxGeometry height="25" width="58" x="1429" y="787" as="geometry" />
+        </mxCell>
+        <mxCell id="artist_album" edge="1" parent="1" source="artist" style="edgeStyle=segmentEdgeStyle;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#202020;strokeWidth=1.7;endArrow=none;startArrow=none;startFill=0;exitX=0.50000;exitY=0.00000;exitDx=0;exitDy=0;entryX=0.50000;entryY=1.00000;entryDx=0;entryDy=0;" target="album" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="artist_album_label0" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="1..*" vertex="1">
+          <mxGeometry height="25" width="58" x="1832" y="643" as="geometry" />
+        </mxCell>
+        <mxCell id="artist_album_label1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="0..*" vertex="1">
+          <mxGeometry height="25" width="58" x="1832" y="382" as="geometry" />
+        </mxCell>
+        <mxCell id="track_genre" edge="1" parent="1" source="track" style="edgeStyle=segmentEdgeStyle;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#202020;strokeWidth=1.7;endArrow=none;startArrow=none;startFill=0;exitX=1.00000;exitY=0.84211;exitDx=0;exitDy=0;entryX=0.00000;entryY=0.50505;entryDx=0;entryDy=0;" target="genre" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1515" y="855" />
+              <mxPoint x="1515" y="1070" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="track_genre_label0" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="0..*" vertex="1">
+          <mxGeometry height="25" width="58" x="1434" y="831" as="geometry" />
+        </mxCell>
+        <mxCell id="track_genre_label1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontSize=17;fontFamily=Arial;fontColor=#111111;" value="1..*" vertex="1">
+          <mxGeometry height="25" width="58" x="1630" y="1048" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
