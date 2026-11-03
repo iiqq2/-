@@ -50,7 +50,6 @@ public sealed class Playlist : ITrackSource
         PlaylistId = Guid.NewGuid().ToString("N");
         Name = name;
         IsPublic = isPublic;
-        Owner.AddPlaylist(this);
     }
 
     public Track[] GetTracks() => _tracks.ToArray();
@@ -94,8 +93,12 @@ public sealed class Subscription
     public decimal MonthlyPrice { get; set; }
     public Subscription(DateTime startDate, DateTime endDate, decimal monthlyPrice, string status = "active")
     { StartDate = startDate; EndDate = endDate; MonthlyPrice = monthlyPrice; Status = status; }
-    public bool IsActive() => Status.Equals("active", StringComparison.OrdinalIgnoreCase)
-        && StartDate <= DateTime.Now && EndDate >= DateTime.Now;
+    public bool IsActive()
+    {
+        var now = DateTime.Now;
+        return string.Equals(Status, "active", StringComparison.OrdinalIgnoreCase)
+            && StartDate <= now && EndDate >= now;
+    }
 }
 
 public sealed class Listening
@@ -111,19 +114,26 @@ public sealed class Listening
 public sealed class PlaylistService
 {
     private readonly Dictionary<string, User> _users = new();
-    public void RegisterUser(User user) => _users[user.UserId] = user;
-    public User? FindUser(string userId) => _users.GetValueOrDefault(userId);
+    public void RegisterUser(User user)
+    {
+        ArgumentNullException.ThrowIfNull(user);
+        _users[user.UserId] = user;
+    }
+    private User? FindUser(string userId) => _users.GetValueOrDefault(userId);
     public Playlist CreatePlaylist(string userId, string name, bool isPublic)
     {
         var owner = FindUser(userId) ?? throw new ArgumentException("Пользователь не найден.", nameof(userId));
-        return new Playlist(owner, name, isPublic);
+        var playlist = new Playlist(owner, name, isPublic);
+        owner.AddPlaylist(playlist);
+        return playlist;
     }
 }
 
 public sealed class PlaylistEditor
 {
     private readonly PlaylistService _service;
-    public PlaylistEditor(PlaylistService service) => _service = service;
+    public PlaylistEditor(PlaylistService service) =>
+        _service = service ?? throw new ArgumentNullException(nameof(service));
     public Playlist Submit(string userId, string name, bool isPublic) => _service.CreatePlaylist(userId, name, isPublic);
 }
 
@@ -133,7 +143,8 @@ public sealed class AudioOutput
     public void SetSource(byte[] audio) => _source = audio is null ? Array.Empty<byte>() : (byte[])audio.Clone();
     public void Play(byte[] audio)
     {
-        SetSource(audio);
+        ArgumentNullException.ThrowIfNull(audio);
+        // Источник уже установлен проигрывателем через SetSource.
         Console.WriteLine($"Воспроизведение имитируется: {_source.Length} байт аудио.");
     }
 }
@@ -142,26 +153,28 @@ public sealed class Player
 {
     private readonly AudioOutput _output;
     public Track? CurrentTrack { get; private set; }
-    public Player(AudioOutput output) => _output = output;
-    public void StartPlayback(Track[] tracks) { foreach (var track in tracks) PlayNextTrack(track); }
+    public Player(AudioOutput output) =>
+        _output = output ?? throw new ArgumentNullException(nameof(output));
+    public void StartPlayback(Track[] tracks)
+    {
+        ArgumentNullException.ThrowIfNull(tracks);
+        foreach (var track in tracks) PlayNextTrack(track);
+    }
     public void PlayNextTrack(Track track)
     {
+        ArgumentNullException.ThrowIfNull(track);
         CurrentTrack = track;
-        PrepareAudio(track);
-    }
-    public byte[] PrepareAudio(Track track)
-    {
         var audio = track.GetAudioFile();
         _output.SetSource(audio);
         _output.Play(audio);
-        return audio;
     }
 }
 
 public sealed class PlaybackController
 {
     private readonly Player _player;
-    public PlaybackController(Player player) => _player = player;
+    public PlaybackController(Player player) =>
+        _player = player ?? throw new ArgumentNullException(nameof(player));
 
     public string PlayPlaylist(string playlistId, string userId, IEnumerable<Playlist> playlists, IEnumerable<Subscription> subscriptions)
     {
